@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ConfettiEffect from '../components/ConfettiEffect';
 import PixelBunny from '../components/PixelBunny';
@@ -97,10 +96,9 @@ const Index = () => {
               
               <div className="bg-white/10 rounded-xl p-6 min-h-[120px] border-2 border-dashed border-purple-300/50">
                 <p className="text-purple-100 text-center italic text-lg leading-relaxed">
-                  ✨ Aici voi scrie cele mai frumoase urări pentru tine, Bianca! ✨
+                  ✨ Cateva cuvinte calduroase de la Bogdan, cel care iubeste oamenii si se gandeste la ei mereu. ✨
                   <br /><br />
-                  Să ai parte de cele mai frumoase momente, să-ți îndeplinești toate visele 
-                  și să continui să fii persoana minunată care ești! 
+                  Asemenea unui joc, in viata poti sa incerci de mai multe ori si sa gresesti pana reusesti sau chiar sa-ti iei un moment de planificare si sa reusesti din prima. Oricare ai alege, la un moment dat poate te vei frustra, dar nu uita ca jocul nu se termina acolo. Priveste in viitor cu optimism si cand esti la pamant viseaza-te cum ti-ai implinit visele pe care le urmaresti in prezent. Jocul merita jucat iar viata merita traita.
                   <br /><br />
                   Multă sănătate, fericire și success în gaming! 🎮💖
                 </p>
