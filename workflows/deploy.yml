@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Ruleazã la orice push în branchul principal
+  push:
+    branches: [main]
+  # Permite declanșare manualã din tab-ul Actions
+  workflow_dispatch:
+
+# ===== JOB 1 – BUILD =====
+jobs:
+  build:
+    runs-on: ubuntu-latest     # mașinã virtualã Ubuntu
+    permissions:
+      contents: read           # citește codul
+    steps:
+      - uses: actions/checkout@v4   # cloneazã repo-ul
+
+      - uses: actions/setup-node@v4 # instaleazã Node
+        with:
+          node-version: 20          # sau versiunea ta preferatã
+
+      - run: npm ci                # instalare rapidã dependențe
+      - run: npm run build         # Vite genereazã ./dist
+
+      # împacheteazã și trimite build-ul ca artefact numit „github-pages”
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+# ===== JOB 2 – DEPLOY =====
+  deploy:
+    needs: build                  # ruleazã dupã jobul build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages          # env implicit pentru Pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:                 # obligatorii pt Pages
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
